@@ -19,11 +19,9 @@
 		DE9A9ED21C4FBC9600D4AC3B /* QuoteResponseSerializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9A9EC81C4FBC9600D4AC3B /* QuoteResponseSerializer.swift */; };
 		DE9A9ED31C4FBC9600D4AC3B /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9A9EC91C4FBC9600D4AC3B /* Router.swift */; };
 		DE9A9ED41C4FBC9600D4AC3B /* YahooQueryResponseSerializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9A9ECA1C4FBC9600D4AC3B /* YahooQueryResponseSerializer.swift */; };
-		DE9A9EDB1C4FBD6700D4AC3B /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE9A9EDA1C4FBD6700D4AC3B /* Alamofire.framework */; };
 		DE9A9F371C4FE61B00D4AC3B /* OrderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9A9F361C4FE61B00D4AC3B /* OrderTests.swift */; };
 		DE9A9F391C4FE62600D4AC3B /* QuoteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9A9F381C4FE62600D4AC3B /* QuoteTests.swift */; };
 		DE9A9F3B1C4FE62D00D4AC3B /* QueryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9A9F3A1C4FE62D00D4AC3B /* QueryTests.swift */; };
-		DECC92021C4FE7BC00C7859F /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE9A9EDA1C4FBD6700D4AC3B /* Alamofire.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,7 +51,6 @@
 		DE9A9EC81C4FBC9600D4AC3B /* QuoteResponseSerializer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuoteResponseSerializer.swift; sourceTree = "<group>"; };
 		DE9A9EC91C4FBC9600D4AC3B /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		DE9A9ECA1C4FBC9600D4AC3B /* YahooQueryResponseSerializer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YahooQueryResponseSerializer.swift; sourceTree = "<group>"; };
-		DE9A9EDA1C4FBD6700D4AC3B /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		DE9A9F361C4FE61B00D4AC3B /* OrderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderTests.swift; sourceTree = "<group>"; };
 		DE9A9F381C4FE62600D4AC3B /* QuoteTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuoteTests.swift; sourceTree = "<group>"; };
 		DE9A9F3A1C4FE62D00D4AC3B /* QueryTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QueryTests.swift; sourceTree = "<group>"; };
@@ -64,7 +61,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DE9A9EDB1C4FBD6700D4AC3B /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -73,7 +69,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				DE9A9EA21C4FBC0D00D4AC3B /* StocksKit.framework in Frameworks */,
-				DECC92021C4FE7BC00C7859F /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,7 +78,6 @@
 		DE9A9E8D1C4FBC0D00D4AC3B = {
 			isa = PBXGroup;
 			children = (
-				DE9A9EDA1C4FBD6700D4AC3B /* Alamofire.framework */,
 				DE9A9E991C4FBC0D00D4AC3B /* StocksKit */,
 				DE9A9EA51C4FBC0D00D4AC3B /* StocksKitTests */,
 				DE9A9E981C4FBC0D00D4AC3B /* Products */,

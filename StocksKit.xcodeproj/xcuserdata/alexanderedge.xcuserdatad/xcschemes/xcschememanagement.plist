@@ -4,7 +4,12 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>StocksKit.xcscheme_^#shared#^_</key>
+		<key>StocksKit OSX.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
+		<key>StocksKit iOS.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
@@ -12,6 +17,21 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>DE83F9DC1C57DAB600C3A083</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>DE83F9E51C57DAB700C3A083</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>DE83F9F81C57DCA700C3A083</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>DE9A9E961C4FBC0D00D4AC3B</key>
 		<dict>
 			<key>primary</key>

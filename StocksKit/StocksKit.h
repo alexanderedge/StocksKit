@@ -6,7 +6,7 @@
 //  Copyright © 2016 Alexander Edge. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
 
 //! Project version number for StocksKit.
 FOUNDATION_EXPORT double StocksKitVersionNumber;

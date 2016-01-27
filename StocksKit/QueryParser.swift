@@ -20,8 +20,6 @@ struct QueryParser : JSONParsingType {
     
     func parse(json: [String : AnyObject]) throws -> T {
         
-        print(json)
-        
         guard let count = json["count"] as? Int else {
             throw QueryError.MissingCount
         }

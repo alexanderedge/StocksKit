@@ -53,7 +53,7 @@ class OrderTests: XCTestCase {
     
     func testCurrentValue() {
         let order = Order(symbol: "FOO", quantity: 30, price: 1.4, currency: "GBP", baseCurrency: "GBP", commission: 10.5)
-        let quote = Quote(symbol: "FOO", name: "ACME INC", exchange: "LSE", currency: "GBP", lastTradePrice: 1.6)
+        let quote = Quote(symbol: "FOO", name: "ACME INC", exchange: "LSE", currency: "GBP", lastTradePrice: 1.6, change: 1, percentChange:  1)
         do {
             let currentValue = try order.currentValue(quote)
             XCTAssertEqual(currentValue, NSDecimalNumber(double: 48))

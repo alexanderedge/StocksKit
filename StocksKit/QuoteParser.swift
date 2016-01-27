@@ -19,6 +19,8 @@ struct QuoteParser : JSONParsingType {
         case MissingOrInvalidAskPrice
         case MissingOrInvalidBidPrice
         case MissingOrInvalidLastTradePrice
+        case MissingOrInvalidChange
+        case MissingOrInvalidPercentChange
     }
     
     func parse(json: [String : AnyObject]) throws -> T {
@@ -43,7 +45,16 @@ struct QuoteParser : JSONParsingType {
             throw QuoteError.MissingOrInvalidLastTradePrice
         }
         
-        return Quote(symbol: symbol, name: name, exchange: exchange, currency: currency, lastTradePrice: NSDecimalNumber(string: lastTradePrice))
+        guard let change = json["Change"] as? String else {
+            throw QuoteError.MissingOrInvalidChange
+        }
+        
+        guard let percentChange = json["ChangeinPercent"] as? String else {
+            throw QuoteError.MissingOrInvalidPercentChange
+        }
+        
+        let percentChangeNumber = NSDecimalNumber(string: percentChange)
+        return Quote(symbol: symbol, name: name, exchange: exchange, currency: currency, lastTradePrice: NSDecimalNumber(string: lastTradePrice), change: NSDecimalNumber(string: change), percentChange: percentChangeNumber / 100)
 
     }
    

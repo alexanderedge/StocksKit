@@ -16,13 +16,17 @@ public struct Quote {
     public var currency : String
     public var exchange : String
     public var lastTradePrice : NSDecimalNumber
-   
-    public init(symbol: String, name: String, exchange: String, currency: String, lastTradePrice: NSDecimalNumber) {
+    public var change : NSDecimalNumber
+    public var percentChange : NSDecimalNumber
+    
+    public init(symbol: String, name: String, exchange: String, currency: String, lastTradePrice: NSDecimalNumber, change: NSDecimalNumber, percentChange: NSDecimalNumber) {
         self.symbol = symbol
         self.name = name
         self.exchange = exchange
         self.currency = currency
         self.lastTradePrice = lastTradePrice
+        self.change = change
+        self.percentChange = percentChange
     }
     
     

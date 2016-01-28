@@ -48,4 +48,35 @@ struct Router {
             }
         }
     }
+    
+    enum ExchangeRates : URLRequestConvertible {
+        case Fetch([String])
+        
+        var method : Alamofire.Method {
+            return .GET
+        }
+        
+        var path : String {
+            switch self {
+            case .Fetch:
+                return "/v1/public/yql"
+            }
+        }
+        
+        var URLRequest: NSMutableURLRequest {
+            let request = Router.requestForPath(path, method: method)
+            
+            switch self {
+            case .Fetch(let pairs):
+                var params = [String : AnyObject]()
+                
+                let pairsInCommas = pairs.map({"\"\($0)\""})
+                
+                params["q"] = "select * from yahoo.finance.xchange where pair in (\(pairsInCommas.joinWithSeparator(",")))"
+                params["format"] = "json"
+                params["env"] = "store://datatables.org/alltableswithkeys"
+                return Alamofire.ParameterEncoding.URL.encode(request, parameters: params).0
+            }
+        }
+    }
 }

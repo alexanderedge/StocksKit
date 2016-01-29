@@ -9,8 +9,8 @@
 /* Begin PBXBuildFile section */
 		DE700A8E1C5916B000AD6F02 /* Quotes.json in Resources */ = {isa = PBXBuildFile; fileRef = DE700A8D1C5916B000AD6F02 /* Quotes.json */; };
 		DE700A8F1C5916B000AD6F02 /* Quotes.json in Resources */ = {isa = PBXBuildFile; fileRef = DE700A8D1C5916B000AD6F02 /* Quotes.json */; };
-		DE700A961C591B9E00AD6F02 /* StockPurchase.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE700A951C591B9E00AD6F02 /* StockPurchase.swift */; };
-		DE700A971C591B9E00AD6F02 /* StockPurchase.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE700A951C591B9E00AD6F02 /* StockPurchase.swift */; };
+		DE700A961C591B9E00AD6F02 /* Holding.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE700A951C591B9E00AD6F02 /* Holding.swift */; };
+		DE700A971C591B9E00AD6F02 /* Holding.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE700A951C591B9E00AD6F02 /* Holding.swift */; };
 		DE83F9F41C57DBE700C3A083 /* StocksKit.h in Headers */ = {isa = PBXBuildFile; fileRef = DE9A9E9A1C4FBC0D00D4AC3B /* StocksKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DE83F9FE1C57DCA700C3A083 /* StocksKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE83F9DD1C57DAB600C3A083 /* StocksKit.framework */; };
 		DE83FA041C57DCC800C3A083 /* OrderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9A9F361C4FE61B00D4AC3B /* OrderTests.swift */; };
@@ -70,7 +70,7 @@
 /* Begin PBXFileReference section */
 		DE1798041C57827E00B2F6CC /* Cartfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cartfile; sourceTree = SOURCE_ROOT; };
 		DE700A8D1C5916B000AD6F02 /* Quotes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Quotes.json; sourceTree = "<group>"; };
-		DE700A951C591B9E00AD6F02 /* StockPurchase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StockPurchase.swift; sourceTree = "<group>"; };
+		DE700A951C591B9E00AD6F02 /* Holding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Holding.swift; sourceTree = "<group>"; };
 		DE83F9DD1C57DAB600C3A083 /* StocksKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = StocksKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE83F9F91C57DCA700C3A083 /* StocksKit OSX Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "StocksKit OSX Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE9A9E971C4FBC0D00D4AC3B /* StocksKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = StocksKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -209,7 +209,7 @@
 				DE9A9EC31C4FBC9600D4AC3B /* Order.swift */,
 				DE9A9EC41C4FBC9600D4AC3B /* Query.swift */,
 				DE9A9EC61C4FBC9600D4AC3B /* Quote.swift */,
-				DE700A951C591B9E00AD6F02 /* StockPurchase.swift */,
+				DE700A951C591B9E00AD6F02 /* Holding.swift */,
 				DEB102F61C592B4200115CED /* ExchangeRate.swift */,
 			);
 			name = Model;
@@ -456,7 +456,7 @@
 				DE83FA081C57DD7600C3A083 /* Query.swift in Sources */,
 				DE83FA0F1C57DD8100C3A083 /* QuoteParser.swift in Sources */,
 				DE83FA0D1C57DD7E00C3A083 /* ISO8601DateFormatter.swift in Sources */,
-				DE700A971C591B9E00AD6F02 /* StockPurchase.swift in Sources */,
+				DE700A971C591B9E00AD6F02 /* Holding.swift in Sources */,
 				DEB102FB1C592BAA00115CED /* ExchangeRateParser.swift in Sources */,
 				DEB102F81C592B4200115CED /* ExchangeRate.swift in Sources */,
 				DE83FA101C57DD8100C3A083 /* JSONParsingType.swift in Sources */,
@@ -487,7 +487,7 @@
 				DE9A9ECE1C4FBC9600D4AC3B /* Query.swift in Sources */,
 				DE9A9ECD1C4FBC9600D4AC3B /* Order.swift in Sources */,
 				DEB102FA1C592BAA00115CED /* ExchangeRateParser.swift in Sources */,
-				DE700A961C591B9E00AD6F02 /* StockPurchase.swift in Sources */,
+				DE700A961C591B9E00AD6F02 /* Holding.swift in Sources */,
 				DE9A9ECC1C4FBC9600D4AC3B /* JSONParsingType.swift in Sources */,
 				DEFF86341C57DF4700E81796 /* YahooQueryResponseSerializer.swift in Sources */,
 				DE9A9ED31C4FBC9600D4AC3B /* Router.swift in Sources */,

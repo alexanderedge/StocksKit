@@ -8,7 +8,23 @@
 
 import Foundation
 
-struct QuoteParser : JSONParsingType {
+private struct PercentNumberFormatter {
+    
+    private static let formatter : NSNumberFormatter = {
+        let formatter = NSNumberFormatter()
+        formatter.numberStyle = .PercentStyle
+        formatter.generatesDecimalNumbers = true
+        formatter.locale = NSLocale(localeIdentifier: "en_US_POSIX")
+        return formatter
+    }()
+    
+    static func numberFromString(string : String) -> NSDecimalNumber? {
+        return formatter.numberFromString(string) as? NSDecimalNumber
+    }
+    
+}
+
+internal struct QuoteParser : JSONParsingType {
     typealias T = Quote
 
     enum QuoteError : ErrorType {
@@ -49,12 +65,11 @@ struct QuoteParser : JSONParsingType {
             throw QuoteError.MissingOrInvalidChange
         }
         
-        guard let percentChange = json["ChangeinPercent"] as? String else {
+        guard let percentChangeString = json["ChangeinPercent"] as? String, let percentChange = PercentNumberFormatter.numberFromString(percentChangeString) else {
             throw QuoteError.MissingOrInvalidPercentChange
         }
         
-        let percentChangeNumber = NSDecimalNumber(string: percentChange)
-        return Quote(symbol: symbol, name: name, exchange: exchange, currency: currency, lastTradePrice: NSDecimalNumber(string: lastTradePrice), change: NSDecimalNumber(string: change), percentChange: percentChangeNumber / 100)
+        return Quote(symbol: symbol, name: name, exchange: exchange, currency: currency, lastTradePrice: NSDecimalNumber(string: lastTradePrice), change: NSDecimalNumber(string: change), percentChange: percentChange)
 
     }
    

@@ -12,8 +12,10 @@ import Alamofire
 public struct ExchangeRate {
     
     public let identifier: String
-    public let name: String
+    public let from: String
+    public let to: String
     public let rate: NSDecimalNumber
+    public let date: NSDate
     
 }
 

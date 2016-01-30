@@ -7,20 +7,10 @@
 //
 
 import Foundation
-import Alamofire
 
-public protocol HoldingType {
+final public class Holding: NSObject, NSCoding {
     
-    var symbol: String {get}
-    var shares: NSDecimalNumber {get}
-    var price: NSDecimalNumber {get}
-    var commission: NSDecimalNumber {get}
-    var exchangeRate: NSDecimalNumber {get}
-    
-}
-
-public struct Holding : HoldingType {
-    
+    public let UUID: NSUUID
     public let symbol: String
     public let shares: NSDecimalNumber
     public let price: NSDecimalNumber
@@ -28,6 +18,7 @@ public struct Holding : HoldingType {
     public let commission: NSDecimalNumber
     
     public init(symbol: String, shares: NSDecimalNumber, price: NSDecimalNumber, exchangeRate: NSDecimalNumber = 1, commission: NSDecimalNumber) {
+        self.UUID = NSUUID()
         self.symbol = symbol
         self.shares = shares
         self.price = price
@@ -35,56 +26,59 @@ public struct Holding : HoldingType {
         self.commission = commission
     }
     
-}
-
-public func == (lhs: Holding, rhs: Holding) -> Bool {
-    return lhs.symbol == rhs.symbol && lhs.shares == rhs.shares && lhs.price == rhs.price && lhs.commission == rhs.commission
-}
-
-extension Holding: Hashable {
+    override public func isEqual(object: AnyObject?) -> Bool {
+        if let item = object as? Holding {
+            return UUID == item.UUID
+        }
+        return false
+    }
     
-    public var hashValue: Int {
-        return self.symbol.hashValue
+    private enum SerializationKeys : String {
+        case UUID = "uuid"
+        case Symbol = "symbol"
+        case Shares = "shares"
+        case Price = "price"
+        case ExchangeRate = "exchangeRate"
+        case Commission = "commission"
+    }
+    
+    public required init(coder aDecoder: NSCoder) {
+        UUID = aDecoder.decodeObjectForKey(SerializationKeys.UUID.rawValue) as! NSUUID
+        symbol = aDecoder.decodeObjectForKey(SerializationKeys.Symbol.rawValue) as! String
+        shares = aDecoder.decodeObjectForKey(SerializationKeys.Shares.rawValue) as! NSDecimalNumber
+        price = aDecoder.decodeObjectForKey(SerializationKeys.Price.rawValue) as! NSDecimalNumber
+        exchangeRate = aDecoder.decodeObjectForKey(SerializationKeys.ExchangeRate.rawValue) as! NSDecimalNumber
+        commission = aDecoder.decodeObjectForKey(SerializationKeys.Commission.rawValue) as! NSDecimalNumber
+    }
+    
+    public func encodeWithCoder(aCoder: NSCoder) {
+        aCoder.encodeObject(self.UUID, forKey: SerializationKeys.UUID.rawValue)
+        aCoder.encodeObject(self.symbol, forKey: SerializationKeys.Symbol.rawValue)
+        aCoder.encodeObject(self.shares, forKey: SerializationKeys.Shares.rawValue)
+        aCoder.encodeObject(self.price, forKey: SerializationKeys.Price.rawValue)
+        aCoder.encodeObject(self.exchangeRate, forKey: SerializationKeys.ExchangeRate.rawValue)
+        aCoder.encodeObject(self.commission, forKey: SerializationKeys.Commission.rawValue)
     }
     
 }
 
-extension HoldingType {
+extension Holding {
+    
+    enum HoldingError: ErrorType {
+        case IncompatibleSymbol
+    }
     
     public var cost: NSDecimalNumber {
         return self.shares * self.price * self.exchangeRate + self.commission
     }
     
-    public func value(quote: Quote, exchangeRate: NSDecimalNumber) -> NSDecimalNumber {
+    public func value(quote: Quote, exchangeRate: NSDecimalNumber) throws -> NSDecimalNumber {
+        guard quote.symbol == self.symbol else { throw HoldingError.IncompatibleSymbol }
         return quote.lastTradePrice * self.shares * exchangeRate
     }
     
-    public func gain(quote: Quote, exchangeRate: NSDecimalNumber) -> NSDecimalNumber {
-        return (self.value(quote, exchangeRate: exchangeRate) - self.cost)
-    }
-    
-}
-
-extension CollectionType where Generator.Element: HoldingType {
-    
-    public var numberOfShares: NSDecimalNumber {
-        return self.reduce(0){$0 + $1.shares}
-    }
-    
-    public var averagePrice: NSDecimalNumber {
-        return self.cost / self.numberOfShares
-    }
-    
-    public var cost: NSDecimalNumber {
-        return self.reduce(0){$0 + $1.cost}
-    }
-    
-    public func value(quote: Quote, exchangeRate: NSDecimalNumber) -> NSDecimalNumber {
-        return self.reduce(0){$0 + $1.value(quote, exchangeRate: exchangeRate)}
-    }
-    
-    public func gain(quote: Quote, exchangeRate: NSDecimalNumber) -> NSDecimalNumber {
-        return self.value(quote, exchangeRate: exchangeRate) - self.cost
+    public func gain(quote: Quote, exchangeRate: NSDecimalNumber) throws -> NSDecimalNumber {
+        return (try self.value(quote, exchangeRate: exchangeRate) - self.cost)
     }
     
 }

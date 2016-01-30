@@ -11,13 +11,13 @@ import Alamofire
 
 public struct Quote {
     
-    public var symbol : String
-    public var name : String
-    public var currency : String
-    public var exchange : String
-    public var lastTradePrice : NSDecimalNumber
-    public var change : NSDecimalNumber
-    public var percentChange : NSDecimalNumber
+    public let symbol : String
+    public let name : String
+    public let currency : String
+    public let exchange : String
+    public let lastTradePrice : NSDecimalNumber
+    public let change : NSDecimalNumber
+    public let percentChange : NSDecimalNumber
     
     public init(symbol: String, name: String, exchange: String, currency: String, lastTradePrice: NSDecimalNumber, change: NSDecimalNumber, percentChange: NSDecimalNumber) {
         self.symbol = symbol

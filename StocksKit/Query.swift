@@ -11,10 +11,10 @@ import Alamofire
 
 struct Query {
     
-    var count : Int
-    var created : NSDate
-    var lang : String
-    var results : [String : AnyObject]
+    let count : Int
+    let created : NSDate
+    let lang : String
+    let results : [String : AnyObject]
     
 }
 

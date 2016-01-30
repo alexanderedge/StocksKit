@@ -8,7 +8,22 @@
 
 import Foundation
 
-struct QueryParser : JSONParsingType {
+private struct ISO8601DateFormatter {
+    
+    private static let formatter : NSDateFormatter = {
+        let formatter = NSDateFormatter()
+        formatter.locale = NSLocale(localeIdentifier: "en_US_POSIX")
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZZZ"
+        return formatter
+    }()
+    
+    static func dateFromString(string : String) -> NSDate? {
+        return formatter.dateFromString(string)
+    }
+    
+}
+
+internal struct QueryParser : JSONParsingType {
     typealias T = Query
 
     enum QueryError : ErrorType {

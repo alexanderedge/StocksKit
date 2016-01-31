@@ -14,6 +14,7 @@ private struct PercentNumberFormatter {
         let formatter = NSNumberFormatter()
         formatter.numberStyle = .PercentStyle
         formatter.generatesDecimalNumbers = true
+        formatter.positivePrefix = "+"
         formatter.locale = NSLocale(localeIdentifier: "en_US_POSIX")
         return formatter
     }()

@@ -9,7 +9,19 @@
 import Foundation
 import Alamofire
 
-public struct Quote {
+public protocol QuoteType {
+ 
+    var symbol: String { get }
+    var name : String { get }
+    var currency : String { get }
+    var exchange : String { get }
+    var lastTradePrice : NSDecimalNumber { get }
+    var change : NSDecimalNumber { get }
+    var percentChange : NSDecimalNumber { get }
+    
+}
+
+public struct Quote : QuoteType {
     
     public let symbol : String
     public let name : String
@@ -29,7 +41,6 @@ public struct Quote {
         self.percentChange = percentChange
     }
     
-    
 }
 
 public extension Quote {
@@ -40,6 +51,14 @@ public extension Quote {
     
     public static func fetch(symbols : [String]) -> Request {
         return Alamofire.request(Router.Quotes.Fetch(symbols))
+    }
+    
+}
+
+extension CollectionType where Generator.Element: QuoteType {
+    
+    public var currencies: [String] {
+        return Array(Set(self.map({$0.currency})))
     }
     
 }

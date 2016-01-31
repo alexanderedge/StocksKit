@@ -25,7 +25,7 @@ class QuoteParserTests: XCTestCase {
         return try NSJSONSerialization.JSONObjectWithData(NSData(contentsOfFile: NSBundle(forClass: self.dynamicType).pathForResource("Quote", ofType: "json")!)!, options: []) as! [String: AnyObject]
     }
     
-    func testParsesValidJSON() {
+    func testParsesNegativeChange() {
         
         do {
 
@@ -37,6 +37,29 @@ class QuoteParserTests: XCTestCase {
             XCTAssertEqual(quote.exchange, "LSE")
             XCTAssertEqual(quote.change, NSDecimalNumber(double: -13.9999))
             XCTAssertEqualWithAccuracy(quote.percentChange.doubleValue, NSDecimalNumber(double: -0.013793).doubleValue, accuracy: DBL_EPSILON)
+            
+        } catch {
+            XCTFail()
+        }
+        
+    }
+    
+    func testParsesPositiveChange() {
+        
+        do {
+            
+            var json = try testJSON()
+            json["ChangeinPercent"] = "+1.3793%"
+            json["Change"] = "13.9999"
+            
+            let quote = try QuoteParser().parse(json)
+            
+            XCTAssertEqual(quote.symbol, "ARM.L")
+            XCTAssertEqual(quote.lastTradePrice, NSDecimalNumber(double: 1001.0000))
+            XCTAssertEqual(quote.currency, "GBp")
+            XCTAssertEqual(quote.exchange, "LSE")
+            XCTAssertEqual(quote.change, NSDecimalNumber(double: 13.9999))
+            XCTAssertEqualWithAccuracy(quote.percentChange.doubleValue, NSDecimalNumber(double: 0.013793).doubleValue, accuracy: DBL_EPSILON)
             
         } catch {
             XCTFail()

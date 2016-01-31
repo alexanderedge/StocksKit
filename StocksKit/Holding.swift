@@ -83,3 +83,11 @@ extension Holding {
     
 }
 
+extension CollectionType where Generator.Element: Holding {
+    
+    public var symbols: [String] {
+        return Array(Set(self.map({$0.symbol})))
+    }
+    
+}
+

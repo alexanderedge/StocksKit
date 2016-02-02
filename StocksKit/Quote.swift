@@ -9,18 +9,6 @@
 import Foundation
 import Alamofire
 
-public protocol QuoteType {
- 
-    var symbol: String { get }
-    var name : String { get }
-    var currency : String { get }
-    var exchange : String { get }
-    var lastTradePrice : NSDecimalNumber { get }
-    var change : NSDecimalNumber { get }
-    var percentChange : NSDecimalNumber { get }
-    
-}
-
 public struct Quote : QuoteType {
     
     public let symbol : String

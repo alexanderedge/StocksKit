@@ -8,7 +8,7 @@
 
 import Foundation
 
-final public class Holding: NSObject, NSCoding {
+final public class Holding: NSObject, HoldingType, NSCoding {
     
     public let UUID: NSUUID
     public let symbol: String
@@ -61,33 +61,3 @@ final public class Holding: NSObject, NSCoding {
     }
     
 }
-
-extension Holding {
-    
-    enum HoldingError: ErrorType {
-        case IncompatibleSymbol
-    }
-    
-    public var cost: NSDecimalNumber {
-        return self.shares * self.price * self.exchangeRate + self.commission
-    }
-    
-    public func value(quote: Quote, exchangeRate: NSDecimalNumber) throws -> NSDecimalNumber {
-        guard quote.symbol == self.symbol else { throw HoldingError.IncompatibleSymbol }
-        return quote.lastTradePrice * self.shares * exchangeRate
-    }
-    
-    public func gain(quote: Quote, exchangeRate: NSDecimalNumber) throws -> NSDecimalNumber {
-        return (try self.value(quote, exchangeRate: exchangeRate) - self.cost)
-    }
-    
-}
-
-extension CollectionType where Generator.Element: Holding {
-    
-    public var symbols: [String] {
-        return Array(Set(self.map({$0.symbol})))
-    }
-    
-}
-

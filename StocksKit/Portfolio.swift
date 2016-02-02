@@ -38,7 +38,7 @@ final public class Portfolio: NSObject, NSCoding {
 extension Portfolio {
     
     public var cost: NSDecimalNumber {
-        return holdings.reduce(0){$0 + $1.cost}
+        return holdings.cost
     }
     
 }

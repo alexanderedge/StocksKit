@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DE27D7E51C5E5C9C00A9F073 /* HoldingType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE27D7E41C5E5C9C00A9F073 /* HoldingType.swift */; };
+		DE27D7E61C5E5C9C00A9F073 /* HoldingType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE27D7E41C5E5C9C00A9F073 /* HoldingType.swift */; };
+		DE27D7E81C5E5CA700A9F073 /* QuoteType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE27D7E71C5E5CA700A9F073 /* QuoteType.swift */; };
+		DE27D7E91C5E5CA700A9F073 /* QuoteType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE27D7E71C5E5CA700A9F073 /* QuoteType.swift */; };
 		DE5ABA461C5D24E100A3F33D /* DecimalNumberTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE5ABA451C5D24E100A3F33D /* DecimalNumberTests.swift */; };
 		DE5ABA471C5D24E100A3F33D /* DecimalNumberTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE5ABA451C5D24E100A3F33D /* DecimalNumberTests.swift */; };
 		DE700A8E1C5916B000AD6F02 /* Quote.json in Resources */ = {isa = PBXBuildFile; fileRef = DE700A8D1C5916B000AD6F02 /* Quote.json */; };
@@ -76,6 +80,8 @@
 
 /* Begin PBXFileReference section */
 		DE1798041C57827E00B2F6CC /* Cartfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cartfile; sourceTree = SOURCE_ROOT; };
+		DE27D7E41C5E5C9C00A9F073 /* HoldingType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HoldingType.swift; sourceTree = "<group>"; };
+		DE27D7E71C5E5CA700A9F073 /* QuoteType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuoteType.swift; sourceTree = "<group>"; };
 		DE5ABA451C5D24E100A3F33D /* DecimalNumberTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DecimalNumberTests.swift; sourceTree = "<group>"; };
 		DE700A8D1C5916B000AD6F02 /* Quote.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Quote.json; sourceTree = "<group>"; };
 		DE700A951C591B9E00AD6F02 /* Holding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Holding.swift; sourceTree = "<group>"; };
@@ -241,6 +247,8 @@
 			isa = PBXGroup;
 			children = (
 				DE9A9EC21C4FBC9600D4AC3B /* JSONParsingType.swift */,
+				DE27D7E41C5E5C9C00A9F073 /* HoldingType.swift */,
+				DE27D7E71C5E5CA700A9F073 /* QuoteType.swift */,
 			);
 			name = Protocol;
 			sourceTree = "<group>";
@@ -472,6 +480,7 @@
 			files = (
 				DE83FA081C57DD7600C3A083 /* Query.swift in Sources */,
 				DE83FA0F1C57DD8100C3A083 /* QuoteParser.swift in Sources */,
+				DE27D7E61C5E5C9C00A9F073 /* HoldingType.swift in Sources */,
 				DE700A971C591B9E00AD6F02 /* Holding.swift in Sources */,
 				DEB102FB1C592BAA00115CED /* ExchangeRateParser.swift in Sources */,
 				DEB102F81C592B4200115CED /* ExchangeRate.swift in Sources */,
@@ -479,6 +488,7 @@
 				DE83FA101C57DD8100C3A083 /* JSONParsingType.swift in Sources */,
 				DEFF86331C57DF4600E81796 /* YahooQueryResponseSerializer.swift in Sources */,
 				DE83FA091C57DD7600C3A083 /* Quote.swift in Sources */,
+				DE27D7E91C5E5CA700A9F073 /* QuoteType.swift in Sources */,
 				DEE164721C5BA63100912565 /* Portfolio.swift in Sources */,
 				DE82E5F41C5CEECB00ED53D7 /* ExchangeRateResponseSerializer.swift in Sources */,
 				DE83FA0C1C57DD7E00C3A083 /* Router.swift in Sources */,
@@ -504,6 +514,7 @@
 			files = (
 				DE9A9ECF1C4FBC9600D4AC3B /* QueryParser.swift in Sources */,
 				DE9A9ECE1C4FBC9600D4AC3B /* Query.swift in Sources */,
+				DE27D7E51C5E5C9C00A9F073 /* HoldingType.swift in Sources */,
 				DEB102FA1C592BAA00115CED /* ExchangeRateParser.swift in Sources */,
 				DE700A961C591B9E00AD6F02 /* Holding.swift in Sources */,
 				DE9A9ECC1C4FBC9600D4AC3B /* JSONParsingType.swift in Sources */,
@@ -511,6 +522,7 @@
 				DE9A9ED31C4FBC9600D4AC3B /* Router.swift in Sources */,
 				DEB102F71C592B4200115CED /* ExchangeRate.swift in Sources */,
 				DEE164711C5BA63100912565 /* Portfolio.swift in Sources */,
+				DE27D7E81C5E5CA700A9F073 /* QuoteType.swift in Sources */,
 				DE9A9ED11C4FBC9600D4AC3B /* QuoteParser.swift in Sources */,
 				DE9A9ED01C4FBC9600D4AC3B /* Quote.swift in Sources */,
 				DEE164741C5BA69300912565 /* NSDecimalNumber+Operators.swift in Sources */,

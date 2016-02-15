@@ -51,6 +51,8 @@
 		DEB102F81C592B4200115CED /* ExchangeRate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB102F61C592B4200115CED /* ExchangeRate.swift */; };
 		DEB102FA1C592BAA00115CED /* ExchangeRateParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB102F91C592BAA00115CED /* ExchangeRateParser.swift */; };
 		DEB102FB1C592BAA00115CED /* ExchangeRateParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB102F91C592BAA00115CED /* ExchangeRateParser.swift */; };
+		DEC10B321C71E5B4005EFA10 /* AggregateHolding.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC10B311C71E5B4005EFA10 /* AggregateHolding.swift */; };
+		DEC10B331C71E5B4005EFA10 /* AggregateHolding.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC10B311C71E5B4005EFA10 /* AggregateHolding.swift */; };
 		DEE164711C5BA63100912565 /* Portfolio.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE164701C5BA63100912565 /* Portfolio.swift */; };
 		DEE164721C5BA63100912565 /* Portfolio.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE164701C5BA63100912565 /* Portfolio.swift */; };
 		DEE164741C5BA69300912565 /* NSDecimalNumber+Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE164731C5BA69300912565 /* NSDecimalNumber+Operators.swift */; };
@@ -108,6 +110,7 @@
 		DEB102F41C592B1A00115CED /* ExchangeRateResponseSerializer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExchangeRateResponseSerializer.swift; sourceTree = "<group>"; };
 		DEB102F61C592B4200115CED /* ExchangeRate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExchangeRate.swift; sourceTree = "<group>"; };
 		DEB102F91C592BAA00115CED /* ExchangeRateParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExchangeRateParser.swift; sourceTree = "<group>"; };
+		DEC10B311C71E5B4005EFA10 /* AggregateHolding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AggregateHolding.swift; sourceTree = "<group>"; };
 		DEE164701C5BA63100912565 /* Portfolio.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Portfolio.swift; sourceTree = "<group>"; };
 		DEE164731C5BA69300912565 /* NSDecimalNumber+Operators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDecimalNumber+Operators.swift"; sourceTree = "<group>"; };
 		DEFF862F1C57DF3500E81796 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/Mac/Alamofire.framework; sourceTree = "<group>"; };
@@ -230,6 +233,7 @@
 				DE9A9EC61C4FBC9600D4AC3B /* Quote.swift */,
 				DEB102F61C592B4200115CED /* ExchangeRate.swift */,
 				DE700A951C591B9E00AD6F02 /* Holding.swift */,
+				DEC10B311C71E5B4005EFA10 /* AggregateHolding.swift */,
 				DEE164701C5BA63100912565 /* Portfolio.swift */,
 			);
 			name = Model;
@@ -481,6 +485,7 @@
 				DE83FA081C57DD7600C3A083 /* Query.swift in Sources */,
 				DE83FA0F1C57DD8100C3A083 /* QuoteParser.swift in Sources */,
 				DE27D7E61C5E5C9C00A9F073 /* HoldingType.swift in Sources */,
+				DEC10B331C71E5B4005EFA10 /* AggregateHolding.swift in Sources */,
 				DE700A971C591B9E00AD6F02 /* Holding.swift in Sources */,
 				DEB102FB1C592BAA00115CED /* ExchangeRateParser.swift in Sources */,
 				DEB102F81C592B4200115CED /* ExchangeRate.swift in Sources */,
@@ -515,6 +520,7 @@
 				DE9A9ECF1C4FBC9600D4AC3B /* QueryParser.swift in Sources */,
 				DE9A9ECE1C4FBC9600D4AC3B /* Query.swift in Sources */,
 				DE27D7E51C5E5C9C00A9F073 /* HoldingType.swift in Sources */,
+				DEC10B321C71E5B4005EFA10 /* AggregateHolding.swift in Sources */,
 				DEB102FA1C592BAA00115CED /* ExchangeRateParser.swift in Sources */,
 				DE700A961C591B9E00AD6F02 /* Holding.swift in Sources */,
 				DE9A9ECC1C4FBC9600D4AC3B /* JSONParsingType.swift in Sources */,

@@ -10,20 +10,15 @@ import Foundation
 
 public protocol HoldingType {
     
-    var UUID: NSUUID { get }
     var symbol: String { get }
     var shares: NSDecimalNumber { get }
-    var price: NSDecimalNumber { get }
-    var exchangeRate: NSDecimalNumber { get }
-    var commission: NSDecimalNumber { get }
+    var cost: NSDecimalNumber { get }
+    func value(quote: Quote, exchangeRate: NSDecimalNumber) -> NSDecimalNumber
+    func gain(quote: Quote, exchangeRate: NSDecimalNumber) -> NSDecimalNumber
     
 }
 
 extension HoldingType {
-    
-    public var cost: NSDecimalNumber {
-        return self.shares * self.price * self.exchangeRate + self.commission
-    }
     
     public func value(quote: Quote, exchangeRate: NSDecimalNumber) -> NSDecimalNumber {
         precondition(quote.symbol == symbol, "Quote must be for the same symbol")
@@ -44,6 +39,10 @@ extension CollectionType where Generator.Element: HoldingType {
     
     public var cost: NSDecimalNumber {
         return self.reduce(0) {$0 + $1.cost}
+    }
+    
+    public var shares: NSDecimalNumber {
+        return self.reduce(0) {$0 + $1.shares}
     }
     
 }

@@ -60,4 +60,8 @@ final public class Holding: NSObject, HoldingType, NSCoding {
         aCoder.encodeObject(self.commission, forKey: SerializationKeys.Commission.rawValue)
     }
     
+    public var cost: NSDecimalNumber {
+        return self.shares * self.price * self.exchangeRate + self.commission
+    }
+    
 }

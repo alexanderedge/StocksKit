@@ -11,6 +11,28 @@ import Foundation
 final public class Portfolio: NSObject, NSCoding {
     
     public var holdings: [Holding]
+    
+    public var aggregatedHoldings: [AggregateHolding] {
+        
+        // group the holdings by symbol
+        
+        var groupedHoldings = [String: [Holding]]()
+        
+        for holding in holdings {
+            groupedHoldings[holding.symbol] = (groupedHoldings[holding.symbol] ?? []) + [holding]
+        }
+        
+        var aggregates = [AggregateHolding]()
+        
+        for (symbol, holdings) in groupedHoldings {
+            
+            aggregates.append(AggregateHolding(symbol: symbol, holdings: holdings))
+            
+        }
+        
+        return aggregates
+    }
+    
     public var currency: String
     
     public init(holdings: [Holding] = [], currency: String) {

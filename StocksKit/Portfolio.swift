@@ -22,15 +22,7 @@ final public class Portfolio: NSObject, NSCoding {
             groupedHoldings[holding.symbol] = (groupedHoldings[holding.symbol] ?? []) + [holding]
         }
         
-        var aggregates = [AggregateHolding]()
-        
-        for (symbol, holdings) in groupedHoldings {
-            
-            aggregates.append(AggregateHolding(symbol: symbol, holdings: holdings))
-            
-        }
-        
-        return aggregates
+        return groupedHoldings.map { AggregateHolding(symbol: $0, holdings: $1) }
     }
     
     public var currency: String

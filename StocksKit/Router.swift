@@ -9,7 +9,6 @@
 import Foundation
 
 public protocol URLRequestConvertible {
-    /// The URL request.
     var URLRequest: NSURLRequest { get }
 }
 
@@ -23,18 +22,8 @@ struct Router {
         return NSURL(string : "https://query.yahooapis.com")!
     }
     
-    private static func requestForPath(path : String, method : Method) -> NSMutableURLRequest {
-        let mutableURLRequest = NSMutableURLRequest(URL: Router.baseURL.URLByAppendingPathComponent(path))
-        mutableURLRequest.HTTPMethod = method.rawValue
-        return mutableURLRequest
-    }
-    
     enum Quotes : URLRequestConvertible {
         case Fetch([String])
-        
-        var method : Method {
-            return .GET
-        }
         
         var path : String {
             switch self {
@@ -60,10 +49,6 @@ struct Router {
     
     enum ExchangeRates : URLRequestConvertible {
         case Fetch([String])
-        
-        var method : Method {
-            return .GET
-        }
         
         var path : String {
             switch self {

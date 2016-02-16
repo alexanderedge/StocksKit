@@ -11,6 +11,8 @@
 		DE27D7E61C5E5C9C00A9F073 /* HoldingType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE27D7E41C5E5C9C00A9F073 /* HoldingType.swift */; };
 		DE27D7E81C5E5CA700A9F073 /* QuoteType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE27D7E71C5E5CA700A9F073 /* QuoteType.swift */; };
 		DE27D7E91C5E5CA700A9F073 /* QuoteType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE27D7E71C5E5CA700A9F073 /* QuoteType.swift */; };
+		DE317E7C1C72914500C708A8 /* ResponseSerializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE317E7B1C72914500C708A8 /* ResponseSerializer.swift */; };
+		DE317E7D1C72914500C708A8 /* ResponseSerializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE317E7B1C72914500C708A8 /* ResponseSerializer.swift */; };
 		DE5ABA461C5D24E100A3F33D /* DecimalNumberTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE5ABA451C5D24E100A3F33D /* DecimalNumberTests.swift */; };
 		DE5ABA471C5D24E100A3F33D /* DecimalNumberTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE5ABA451C5D24E100A3F33D /* DecimalNumberTests.swift */; };
 		DE700A8E1C5916B000AD6F02 /* Quote.json in Resources */ = {isa = PBXBuildFile; fileRef = DE700A8D1C5916B000AD6F02 /* Quote.json */; };
@@ -57,8 +59,8 @@
 		DEE164721C5BA63100912565 /* Portfolio.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE164701C5BA63100912565 /* Portfolio.swift */; };
 		DEE164741C5BA69300912565 /* NSDecimalNumber+Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE164731C5BA69300912565 /* NSDecimalNumber+Operators.swift */; };
 		DEE164751C5BA69300912565 /* NSDecimalNumber+Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE164731C5BA69300912565 /* NSDecimalNumber+Operators.swift */; };
-		DEFF86301C57DF3500E81796 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEFF862F1C57DF3500E81796 /* Alamofire.framework */; };
-		DEFF86321C57DF3A00E81796 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEFF86311C57DF3A00E81796 /* Alamofire.framework */; };
+		DEF95E381C724FC700F6BF04 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF95E371C724FC700F6BF04 /* Result.swift */; };
+		DEF95E391C724FC700F6BF04 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF95E371C724FC700F6BF04 /* Result.swift */; };
 		DEFF86331C57DF4600E81796 /* YahooQueryResponseSerializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9A9ECA1C4FBC9600D4AC3B /* YahooQueryResponseSerializer.swift */; };
 		DEFF86341C57DF4700E81796 /* YahooQueryResponseSerializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9A9ECA1C4FBC9600D4AC3B /* YahooQueryResponseSerializer.swift */; };
 /* End PBXBuildFile section */
@@ -81,9 +83,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		DE1798041C57827E00B2F6CC /* Cartfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cartfile; sourceTree = SOURCE_ROOT; };
 		DE27D7E41C5E5C9C00A9F073 /* HoldingType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HoldingType.swift; sourceTree = "<group>"; };
 		DE27D7E71C5E5CA700A9F073 /* QuoteType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuoteType.swift; sourceTree = "<group>"; };
+		DE317E7B1C72914500C708A8 /* ResponseSerializer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseSerializer.swift; sourceTree = "<group>"; };
 		DE5ABA451C5D24E100A3F33D /* DecimalNumberTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DecimalNumberTests.swift; sourceTree = "<group>"; };
 		DE700A8D1C5916B000AD6F02 /* Quote.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Quote.json; sourceTree = "<group>"; };
 		DE700A951C591B9E00AD6F02 /* Holding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Holding.swift; sourceTree = "<group>"; };
@@ -113,8 +115,7 @@
 		DEC10B311C71E5B4005EFA10 /* AggregateHolding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AggregateHolding.swift; sourceTree = "<group>"; };
 		DEE164701C5BA63100912565 /* Portfolio.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Portfolio.swift; sourceTree = "<group>"; };
 		DEE164731C5BA69300912565 /* NSDecimalNumber+Operators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDecimalNumber+Operators.swift"; sourceTree = "<group>"; };
-		DEFF862F1C57DF3500E81796 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/Mac/Alamofire.framework; sourceTree = "<group>"; };
-		DEFF86311C57DF3A00E81796 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		DEF95E371C724FC700F6BF04 /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,7 +123,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DEFF86301C57DF3500E81796 /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,7 +138,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DEFF86321C57DF3A00E81796 /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -166,8 +165,6 @@
 		DE9A9E8D1C4FBC0D00D4AC3B = {
 			isa = PBXGroup;
 			children = (
-				DEFF86311C57DF3A00E81796 /* Alamofire.framework */,
-				DEFF862F1C57DF3500E81796 /* Alamofire.framework */,
 				DE9A9E991C4FBC0D00D4AC3B /* Source */,
 				DE9A9EA51C4FBC0D00D4AC3B /* Tests */,
 				DE9A9E981C4FBC0D00D4AC3B /* Products */,
@@ -195,7 +192,6 @@
 				DE9A9ED51C4FBD0B00D4AC3B /* Response Serializer */,
 				DE9A9E9A1C4FBC0D00D4AC3B /* StocksKit.h */,
 				DE9A9E9C1C4FBC0D00D4AC3B /* Info.plist */,
-				DE1798041C57827E00B2F6CC /* Cartfile */,
 			);
 			name = Source;
 			path = StocksKit;
@@ -231,6 +227,7 @@
 				DEE164731C5BA69300912565 /* NSDecimalNumber+Operators.swift */,
 				DE9A9EC41C4FBC9600D4AC3B /* Query.swift */,
 				DE9A9EC61C4FBC9600D4AC3B /* Quote.swift */,
+				DEF95E371C724FC700F6BF04 /* Result.swift */,
 				DEB102F61C592B4200115CED /* ExchangeRate.swift */,
 				DE700A951C591B9E00AD6F02 /* Holding.swift */,
 				DEC10B311C71E5B4005EFA10 /* AggregateHolding.swift */,
@@ -253,6 +250,7 @@
 				DE9A9EC21C4FBC9600D4AC3B /* JSONParsingType.swift */,
 				DE27D7E41C5E5C9C00A9F073 /* HoldingType.swift */,
 				DE27D7E71C5E5CA700A9F073 /* QuoteType.swift */,
+				DE317E7B1C72914500C708A8 /* ResponseSerializer.swift */,
 			);
 			name = Protocol;
 			sourceTree = "<group>";
@@ -482,6 +480,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DEF95E391C724FC700F6BF04 /* Result.swift in Sources */,
 				DE83FA081C57DD7600C3A083 /* Query.swift in Sources */,
 				DE83FA0F1C57DD8100C3A083 /* QuoteParser.swift in Sources */,
 				DE27D7E61C5E5C9C00A9F073 /* HoldingType.swift in Sources */,
@@ -496,6 +495,7 @@
 				DE27D7E91C5E5CA700A9F073 /* QuoteType.swift in Sources */,
 				DEE164721C5BA63100912565 /* Portfolio.swift in Sources */,
 				DE82E5F41C5CEECB00ED53D7 /* ExchangeRateResponseSerializer.swift in Sources */,
+				DE317E7D1C72914500C708A8 /* ResponseSerializer.swift in Sources */,
 				DE83FA0C1C57DD7E00C3A083 /* Router.swift in Sources */,
 				DE83FA0B1C57DD7B00C3A083 /* QuoteResponseSerializer.swift in Sources */,
 				DE83FA0E1C57DD8100C3A083 /* QueryParser.swift in Sources */,
@@ -517,6 +517,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DEF95E381C724FC700F6BF04 /* Result.swift in Sources */,
 				DE9A9ECF1C4FBC9600D4AC3B /* QueryParser.swift in Sources */,
 				DE9A9ECE1C4FBC9600D4AC3B /* Query.swift in Sources */,
 				DE27D7E51C5E5C9C00A9F073 /* HoldingType.swift in Sources */,
@@ -531,6 +532,7 @@
 				DE27D7E81C5E5CA700A9F073 /* QuoteType.swift in Sources */,
 				DE9A9ED11C4FBC9600D4AC3B /* QuoteParser.swift in Sources */,
 				DE9A9ED01C4FBC9600D4AC3B /* Quote.swift in Sources */,
+				DE317E7C1C72914500C708A8 /* ResponseSerializer.swift in Sources */,
 				DEE164741C5BA69300912565 /* NSDecimalNumber+Operators.swift in Sources */,
 				DE9A9ED21C4FBC9600D4AC3B /* QuoteResponseSerializer.swift in Sources */,
 				DEB102F51C592B1A00115CED /* ExchangeRateResponseSerializer.swift in Sources */,

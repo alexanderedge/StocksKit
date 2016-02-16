@@ -25,7 +25,7 @@ private struct ISO8601DateFormatter {
 
 internal struct QueryParser : JSONParsingType {
     typealias T = Query
-
+    
     enum QueryError : ErrorType {
         case MissingCount
         case MissingCreated
@@ -33,7 +33,7 @@ internal struct QueryParser : JSONParsingType {
         case MissingResults
     }
     
-    func parse(json: [String : AnyObject]) throws -> T {
+    static func parse(json: [String : AnyObject]) throws -> T {
         
         guard let count = json["count"] as? Int else {
             throw QueryError.MissingCount

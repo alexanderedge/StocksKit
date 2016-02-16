@@ -26,8 +26,9 @@ private struct PercentNumberFormatter {
 }
 
 internal struct QuoteParser : JSONParsingType {
+    
     typealias T = Quote
-
+    
     enum QuoteError : ErrorType {
         case MissingOrInvalidSymbol
         case MissingOrInvalidName
@@ -40,7 +41,7 @@ internal struct QuoteParser : JSONParsingType {
         case MissingOrInvalidPercentChange
     }
     
-    func parse(json: [String : AnyObject]) throws -> T {
+    static func parse(json: [String : AnyObject]) throws -> T {
     
         guard let symbol = json["symbol"] as? String else {
             throw QuoteError.MissingOrInvalidName

@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import Alamofire
 
 public struct ExchangeRate {
     
@@ -21,12 +20,20 @@ public struct ExchangeRate {
 
 public extension ExchangeRate {
     
-    public static func fetch(pair : String) -> Request {
-        return self.fetch([pair])
+    public static func fetch(pair : String, completionHandler: Result<[ExchangeRate], NSError> -> Void) -> NSURLSessionDataTask {
+        return self.fetch([pair], completionHandler: completionHandler)
     }
     
-    public static func fetch(pair : [String]) -> Request {
-        return Alamofire.request(Router.ExchangeRates.Fetch(pair))
+    public static func fetch(pair : [String], completionHandler: Result<[ExchangeRate], NSError> -> Void) -> NSURLSessionDataTask {
+        return NSURLSession.sharedSession().dataTaskWithRequest(Router.ExchangeRates.Fetch(pair).URLRequest, completionHandler: completionHandler)
+    }
+    
+}
+
+extension NSURLSession {
+    
+    public func dataTaskWithRequest(request: NSURLRequest, completionHandler: Result<[ExchangeRate], NSError> -> Void) -> NSURLSessionDataTask {
+        return dataTaskWithRequest(request, responseSerializer: ExchangeRateResponseSerializer.serializer(), completionHandler: completionHandler)
     }
     
 }

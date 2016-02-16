@@ -25,8 +25,9 @@ private struct ExchangeRateDateFormatter {
 
 
 internal struct ExchangeRateParser : JSONParsingType {
-    typealias T = ExchangeRate
     
+    typealias T = ExchangeRate
+
     private static var dateFormatter: NSDateFormatter = {
        
         let formatter = NSDateFormatter()
@@ -44,7 +45,7 @@ internal struct ExchangeRateParser : JSONParsingType {
         case UnableToParseDate
     }
     
-    func parse(json: [String : AnyObject]) throws -> T {
+    static func parse(json: [String : AnyObject]) throws -> T {
         
         guard let identifier = json["id"] as? String else {
             throw ExchangeRateError.MissingOrInvalidIdentifier

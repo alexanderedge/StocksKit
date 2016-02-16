@@ -7,16 +7,15 @@
 //
 
 import Foundation
-import Alamofire
 
 protocol JSONParsingType {
     typealias T
-    func parse(json : [String : AnyObject]) throws -> T
-    func parse(json : [[String : AnyObject]]) -> [T]
+    static func parse(json : [String : AnyObject]) throws -> T
+    static func parse(json : [[String : AnyObject]]) -> [T]
 }
 
 extension JSONParsingType {
-    func parse(json : [[String : AnyObject]]) -> [T] {
+    static func parse(json : [[String : AnyObject]]) -> [T] {
         var array : [T] = []
         for jsonDic in json {
             do {

@@ -7,7 +7,15 @@
 //
 
 import Foundation
-import Alamofire
+
+public protocol URLRequestConvertible {
+    /// The URL request.
+    var URLRequest: NSURLRequest { get }
+}
+
+enum Method: String {
+    case GET
+}
 
 struct Router {
     
@@ -15,7 +23,7 @@ struct Router {
         return NSURL(string : "https://query.yahooapis.com")!
     }
     
-    private static func requestForPath(path : String, method : Alamofire.Method) -> NSMutableURLRequest {
+    private static func requestForPath(path : String, method : Method) -> NSMutableURLRequest {
         let mutableURLRequest = NSMutableURLRequest(URL: Router.baseURL.URLByAppendingPathComponent(path))
         mutableURLRequest.HTTPMethod = method.rawValue
         return mutableURLRequest
@@ -24,7 +32,7 @@ struct Router {
     enum Quotes : URLRequestConvertible {
         case Fetch([String])
         
-        var method : Alamofire.Method {
+        var method : Method {
             return .GET
         }
         
@@ -35,16 +43,17 @@ struct Router {
             }
         }
         
-        var URLRequest: NSMutableURLRequest {
-            let request = Router.requestForPath(path, method: method)
-            
+        var URLRequest: NSURLRequest {
             switch self {
             case .Fetch(let symbols):
-                var params = [String : AnyObject]()
+                var params = [String : String]()
                 params["q"] = "select * from yahoo.finance.quotes where symbol=\"\(symbols.joinWithSeparator(","))\""
                 params["format"] = "json"
                 params["env"] = "store://datatables.org/alltableswithkeys"
-                return Alamofire.ParameterEncoding.URL.encode(request, parameters: params).0
+                let URLComponents = NSURLComponents(URL: NSURL(string: path, relativeToURL: Router.baseURL)!, resolvingAgainstBaseURL: true)!
+                URLComponents.queryItems = params.map({NSURLQueryItem(name: $0, value: $1)})
+                let url = URLComponents.URL!
+                return NSURLRequest(URL: url)
             }
         }
     }
@@ -52,7 +61,7 @@ struct Router {
     enum ExchangeRates : URLRequestConvertible {
         case Fetch([String])
         
-        var method : Alamofire.Method {
+        var method : Method {
             return .GET
         }
         
@@ -63,20 +72,20 @@ struct Router {
             }
         }
         
-        var URLRequest: NSMutableURLRequest {
-            let request = Router.requestForPath(path, method: method)
-            
+        var URLRequest: NSURLRequest {
             switch self {
             case .Fetch(let pairs):
-                var params = [String : AnyObject]()
-                
+                var params = [String : String]()
                 let pairsInCommas = pairs.map({"\"\($0)\""})
-                
                 params["q"] = "select * from yahoo.finance.xchange where pair in (\(pairsInCommas.joinWithSeparator(",")))"
                 params["format"] = "json"
                 params["env"] = "store://datatables.org/alltableswithkeys"
-                return Alamofire.ParameterEncoding.URL.encode(request, parameters: params).0
+                let URLComponents = NSURLComponents(URL: NSURL(string: path, relativeToURL: Router.baseURL)!, resolvingAgainstBaseURL: true)!
+                URLComponents.queryItems = params.map({NSURLQueryItem(name: $0, value: $1)})
+                let url = URLComponents.URL!
+                return NSURLRequest(URL: url)
             }
         }
     }
 }
+

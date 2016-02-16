@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import Alamofire
 
 public struct Quote : QuoteType {
     
@@ -33,16 +32,23 @@ public struct Quote : QuoteType {
 
 public extension Quote {
     
-    public static func fetch(symbol : String) -> Request {
-        return self.fetch([symbol])
+    public static func fetch(symbol : String, completionHandler: Result<[Quote], NSError> -> Void) -> NSURLSessionDataTask {
+        return self.fetch([symbol], completionHandler: completionHandler)
     }
     
-    public static func fetch(symbols : [String]) -> Request {
-        return Alamofire.request(Router.Quotes.Fetch(symbols))
+    public static func fetch(symbols : [String], completionHandler: Result<[Quote], NSError> -> Void) -> NSURLSessionDataTask {
+        return NSURLSession.sharedSession().dataTaskWithRequest(Router.Quotes.Fetch(symbols).URLRequest, completionHandler: completionHandler)
     }
     
 }
 
+extension NSURLSession {
+    
+    public func dataTaskWithRequest(request: NSURLRequest, completionHandler: Result<[Quote], NSError> -> Void) -> NSURLSessionDataTask {
+        return dataTaskWithRequest(request, responseSerializer: QuoteResponseSerializer.serializer(), completionHandler: completionHandler)
+    }
+    
+}
 extension CollectionType where Generator.Element: QuoteType {
     
     public var currencies: [String] {
@@ -50,3 +56,4 @@ extension CollectionType where Generator.Element: QuoteType {
     }
     
 }
+

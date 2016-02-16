@@ -7,36 +7,24 @@
 //
 
 import Foundation
-import Alamofire
 
-extension Request {
+struct ExchangeRateResponseSerializer {
     
-    public static func ExchangeRateResponseSerializer() -> ResponseSerializer<[ExchangeRate], NSError> {
-        return ResponseSerializer { request, response, data, error in
-            guard error == nil else { return .Failure(error!) }
-            let yahooQueryResponseSerializer = Request.YahooQueryResponseSerializer()
-            let result = yahooQueryResponseSerializer.serializeResponse(request, response, data, error)
-            switch result {
-            case .Success(let query):
-                do {
-                    if let jsonArray = query.results["rate"] as? [[String : AnyObject]] {
-                        return .Success(ExchangeRateParser().parse(jsonArray))
-                    } else if let jsonObject = query.results["rate"] as? [String : AnyObject] {
-                        return .Success([try ExchangeRateParser().parse(jsonObject)])
-                    } else {
-                        throw Error.errorWithCode(.JSONSerializationFailed, failureReason: "missing 'rate'")
-                    }
-                } catch {
-                    return .Failure(error as NSError)
-                }
-            case .Failure(let error):
-                return .Failure(error)
-            }
-        }
+    enum ExchangeRateError: ErrorType {
+        case MissingRate
     }
     
-    public func responseExchangeRates(completionHandler: Response<[ExchangeRate], NSError> -> Void) -> Self {
-        return response(responseSerializer: Request.ExchangeRateResponseSerializer(), completionHandler: completionHandler)
+    static func serializer() -> ResponseSerializer <[ExchangeRate]> {
+        return ResponseSerializer <[ExchangeRate]> { data, response, error in
+            let query = try YahooQueryResponseSerializer.serializer().serializeResponse(data, response: response, error: error)
+            if let jsonArray = query.results["rate"] as? [[String : AnyObject]] {
+                return ExchangeRateParser.parse(jsonArray)
+            } else if let jsonObject = query.results["rate"] as? [String : AnyObject] {
+                return [try ExchangeRateParser.parse(jsonObject)]
+            } else {
+                throw ExchangeRateError.MissingRate
+            }
+        }
     }
     
 }

@@ -29,7 +29,7 @@ class QuoteParserTests: XCTestCase {
         
         do {
 
-            let quote = try QuoteParser().parse(testJSON())
+            let quote = try QuoteParser.parse(testJSON())
             
             XCTAssertEqual(quote.symbol, "ARM.L")
             XCTAssertEqual(quote.lastTradePrice, NSDecimalNumber(double: 1001.0000))
@@ -52,7 +52,7 @@ class QuoteParserTests: XCTestCase {
             json["ChangeinPercent"] = "+1.3793%"
             json["Change"] = "13.9999"
             
-            let quote = try QuoteParser().parse(json)
+            let quote = try QuoteParser.parse(json)
             
             XCTAssertEqual(quote.symbol, "ARM.L")
             XCTAssertEqual(quote.lastTradePrice, NSDecimalNumber(double: 1001.0000))

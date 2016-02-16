@@ -29,7 +29,7 @@ class QueryParserTests: XCTestCase {
         
         do {
             
-            let query = try QueryParser().parse(testJSON())
+            let query = try QueryParser.parse(testJSON())
             
             XCTAssertEqual(query.count, 2)
             

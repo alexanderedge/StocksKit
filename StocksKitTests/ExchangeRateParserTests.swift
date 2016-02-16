@@ -29,7 +29,7 @@ class ExchangeRateParserTests: XCTestCase {
         
         do {
             
-            let exchange = try ExchangeRateParser().parse(testJSON())
+            let exchange = try ExchangeRateParser.parse(testJSON())
             
             XCTAssertEqual(exchange.identifier, "EURUSD")
             XCTAssertEqual(exchange.to, "USD")

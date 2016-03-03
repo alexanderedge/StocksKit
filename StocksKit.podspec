@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "StocksKit"
-  s.version      = "1.0.1"
+  s.version      = "1.0.2"
   s.summary      = "A framework for fetching stock information and exchange rates from the Yahoo API"
 
   s.description  = <<-DESC

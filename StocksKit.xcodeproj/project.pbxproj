@@ -221,7 +221,7 @@
 				DE9A9E9C1C4FBC0D00D4AC3B /* Info.plist */,
 			);
 			name = Source;
-			path = StocksKit;
+			path = Sources;
 			sourceTree = "<group>";
 		};
 		DE9A9EA51C4FBC0D00D4AC3B /* Tests */ = {
